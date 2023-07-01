@@ -1,6 +1,9 @@
 package testhelpers
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func AssertCorrectString(t *testing.T, got, want string) {
 	t.Helper()
@@ -13,5 +16,12 @@ func AssertCorrectInteger(t *testing.T, got, want int) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got: %d, want: %d", got, want)
+	}
+}
+
+func AssertCorrectSlice(t *testing.T, got, want []int) {
+	t.Helper()
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
 	}
 }
