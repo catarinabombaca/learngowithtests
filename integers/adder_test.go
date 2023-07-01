@@ -2,6 +2,7 @@ package integers
 
 import (
 	"fmt"
+	"github.com/catarinabombaca/learngowithtests/testhelpers"
 	"testing"
 )
 
@@ -9,9 +10,7 @@ func TestAdder(t *testing.T) {
 	got := Add(2, 2)
 	want := 4
 
-	if got != want {
-		t.Errorf("got: %d, want: %d", got, want)
-	}
+	testhelpers.AssertCorrectInteger(t, got, want)
 }
 
 func ExampleAdd() {
