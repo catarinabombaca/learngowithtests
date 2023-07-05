@@ -32,3 +32,21 @@ func AssertCorrectFloat(t *testing.T, got, want float64) {
 		t.Errorf("got %g, want: %g", got, want)
 	}
 }
+
+func AssertError(t *testing.T, got error, want string) {
+	t.Helper()
+	if got == nil {
+		t.Fatal("wanted an error but didnt get one")
+	}
+
+	if got.Error() != want {
+		t.Errorf("got %q, want %q", got, want)
+	}
+}
+
+func AssertNoError(t *testing.T, got error) {
+	t.Helper()
+	if got != nil {
+		t.Fatalf("wanted no error, but got one: %q", got)
+	}
+}
