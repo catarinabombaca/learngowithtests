@@ -25,3 +25,10 @@ func AssertCorrectSlice(t *testing.T, got, want []int) {
 		t.Errorf("got %v want %v", got, want)
 	}
 }
+
+func AssertCorrectFloat(t *testing.T, got, want float64) {
+	t.Helper()
+	if got != want {
+		t.Errorf("got %g, want: %g", got, want)
+	}
+}
