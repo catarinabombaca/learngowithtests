@@ -19,7 +19,7 @@ func AssertCorrectInteger(t *testing.T, got, want int) {
 	}
 }
 
-func AssertCorrectSlice(t *testing.T, got, want []int) {
+func AssertCorrectSlice(t *testing.T, got, want interface{}) {
 	t.Helper()
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %v want %v", got, want)
